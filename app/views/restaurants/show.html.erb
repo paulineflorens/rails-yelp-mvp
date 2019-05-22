@@ -5,13 +5,14 @@
     <p class="card-text"><%= @restaurant.address %></p>
     <p class="card-text"><%= @restaurant.phone_number %></p>
 
+    <%= render 'reviews/form', review: @review %>
+
     <h5>Reviews</h5>
     <ul>
-      <% @reviews.each do |review| %>
+      <% @restaurant.reviews.each do |review| %>
         <li><%= review.content %> | <%= review.rating %> stars</li>
       <% end %>
     </ul>
 
-    <%= link_to "add a review", new_restaurant_review_path(@restaurant.id) %>
   </div>
 </div>
